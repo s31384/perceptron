@@ -36,7 +36,7 @@ public class Main {
         Perceptron perceptron = new Perceptron(new double[]{0,0,0,0} , 0.5, 0.01, 0.01 );
         for(int i = 0; i < 5; i++){
         for(Iris iris: trainingSet){
-            if(iris.getType() == "Iris-setosa"){
+            if(iris.getType().equals("Iris-setosa")){
                 perceptron.learn(iris.getVector(), 1);
             }else {perceptron.learn(iris.getVector(), 0);}
         }
@@ -47,7 +47,7 @@ public class Main {
 
         for(Iris iris: testSet){
             int setosa = 0;
-            if(iris.getType() == "Iris-setosa"){
+            if(iris.getType().equals("Iris-setosa")){
                 setosa =1 ;
             }
 
@@ -58,7 +58,7 @@ public class Main {
 
             System.out.println(iris.getType() + " " + classifed );
         }
-        double accuracy = rightAnswers/testSet.size() * 100;
+        double accuracy = (double) rightAnswers /testSet.size() * 100;
 
         System.out.println("Accuracy: " + accuracy);
     }
