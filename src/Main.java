@@ -61,5 +61,20 @@ public class Main {
         double accuracy = (double) rightAnswers /testSet.size() * 100;
 
         System.out.println("Accuracy: " + accuracy);
+
+        Scanner scanner = new Scanner(System.in);
+
+        String s = scanner.nextLine();
+
+        String[] tokens = s.split(",");
+
+        Iris iris = new Iris(Double.parseDouble(tokens[0]), Double.parseDouble(tokens[1]), Double.parseDouble(tokens[2]), Double.parseDouble(tokens[3]));
+
+        perceptron.classify(iris.getVector());
+
+        System.out.println(perceptron.classify(iris.getVector()));
     }
+
+
+
 }
